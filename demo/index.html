@@ -16,6 +16,7 @@
             list-style: none;
             width: 150px;
             height: 30px;
+            line-height: 30px;
             text-align: center;
         }
     </style>
@@ -29,17 +30,20 @@
         <li>按数据渐变模式</li>
     </ul>
     <script>
-        var gradient = new Gradient('#90e9f8', '#1fa1b9', [1242, 1242, 440, 320, 100, 26, 18, 16, 11, 10, 8, 5, 5, 5]);
+        var data = [1242, 1242, 440, 320, 100, 26, 18, 16, 11, 10, 8, 5, 5, 5],
+            gradient = new Gradient('#90e9f8', '#1fa1b9', data);
 
-        gradient.getGradientColors().forEach(function (color) {
+        gradient.getGradientColors().forEach(function (color, index) {
             var li = document.createElement('li');
             li.style.backgroundColor = color;
+            li.textContent = data[index];
             document.getElementById('gradient').appendChild(li);
         });
 
-        gradient.getColors().forEach(function (color) {
+        gradient.getColors().forEach(function (color, index) {
             var li = document.createElement('li');
             li.style.backgroundColor = color;
+            li.textContent = data[index];
             document.getElementById('counts').appendChild(li);
         })
     </script>
