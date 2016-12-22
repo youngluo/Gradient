@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../index.js"></script>
+    <style>
+        ul {
+            float: left;
+            margin-left: 100px;
+            font-size: 14px;
+        }
+        
+        ul li {
+            list-style: none;
+            width: 150px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="gradient">
+        <li>均匀渐变模式</li>
+    </ul>
+    <ul id="counts">
+        <li>按数据渐变模式</li>
+    </ul>
+    <script>
+        var gradient = new Gradient('#90e9f8', '#1fa1b9', [1242, 1242, 440, 320, 100, 26, 18, 16, 11, 10, 8, 5, 5, 5]);
+
+        gradient.getGradientColors().forEach(function (color) {
+            var li = document.createElement('li');
+            li.style.backgroundColor = color;
+            document.getElementById('gradient').appendChild(li);
+        });
+
+        gradient.getColors().forEach(function (color) {
+            var li = document.createElement('li');
+            li.style.backgroundColor = color;
+            document.getElementById('counts').appendChild(li);
+        })
+    </script>
+</body>
+
+</html>
