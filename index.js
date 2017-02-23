@@ -73,6 +73,10 @@
     }
 
     GradientFn.getColors = function () {
+        if (this.items.length == 1) {
+            return [this.endColor];
+        }
+
         var self = this,
             colors = [],
             step = Math.max.apply(null, this.items),
@@ -86,6 +90,10 @@
     }
 
     GradientFn.getGradientColors = function () {
+        if (this.items.length == 1) {
+            return [this.endColor];
+        }
+
         var colors = [],
             self = this,
             unique = this._unique(),
